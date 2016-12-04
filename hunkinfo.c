@@ -1,7 +1,9 @@
 /*
  * HUNK INFO - Show the structure of a hunk binary file.
  *
- * (c) 2012 Andreu Santaren <andreu.santaren@gmail.com>
+ * (c) 2012-2016 Andreu Santaren Llop - github.com/asllop
+ *
+ * NOTE: HunkInfo is in alpha stage, some Hunk types are nor recognized.
  */
  
 #include <stdio.h>
