@@ -7,10 +7,10 @@ Amiga Hunk is the binary format used by classic AmigaOS and it's used for regula
 
 For general information on the Amiga Hunk check out the [Wikipedia entry](https://en.wikipedia.org/wiki/Amiga_Hunk).
 
-###Build
+### Build
 
 	$ make hunkinfo
 
-###Usage
+### Usage
 
 	$ hunkinfo FILENAME
