@@ -216,8 +216,7 @@ unsigned long hunksize[20];                             // llista de mides de hu
 
 int main(int argc, char **argv)
 {
-    printf("\nHunkInfo v1.0 (c) 2012 Andreu Santaren Llop");
-    printf("\n                  andreu.santaren@gmail.com\n\n");
+    printf("\nHunkInfo v1.0 (c) 2012-2016 Andreu Santaren Llop\n\n");
 
     if (argc != 2)
     {
@@ -241,7 +240,7 @@ int main(int argc, char **argv)
 
     if (magic == HUNK_UNIT)
     {
-        printf("HUNK_UNIT FOUND!! Please send me this file to: andreu.santaren@gmail.com\n");
+        printf("HUNK_UNIT FOUND\n");
         fclose(fp);
         exit(2);
     }
@@ -255,7 +254,7 @@ int main(int argc, char **argv)
 
     if (string != 0)
     {
-        printf("HEADER STRING IS NOT NULL!! Please send me this file to: andreu.santaren@gmail.com\n");
+        printf("HEADER STRING IS NOT NULL\n");
         fclose(fp);
         exit(2);
     }
