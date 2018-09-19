@@ -7,7 +7,7 @@ Amiga Hunk is the binary format used by classic AmigaOS and it's used for regula
 
 For general information on the Amiga Hunk format, check out the [Wikipedia entry](https://en.wikipedia.org/wiki/Amiga_Hunk).
 
-It has no dependencies, the code 100% ANSI C.
+It has no dependencies besides the libc, the code is 100% ANSI C.
 
 ### Build
 
