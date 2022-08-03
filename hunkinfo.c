@@ -18,6 +18,7 @@
 #define HUNK_RELOC32        0x3EC
 #define HUNK_DREL32         0x3F7
 #define HUNK_SYMBOL         0x3F0
+#define HUNK_DEBUG          0x3F1
 #define HUNK_END            0x3F2
 
 unsigned long read32(FILE *fp)
@@ -157,6 +158,24 @@ int symbolhunk(FILE *fp)
     return 0;
 }
 
+int debughunk(FILE *fp)
+{
+    unsigned long numoffs = read32(fp);
+    int i;
+    if (numoffs == 0) return 0;
+    printf("Number of Longwords of Debug Data = %lu\n", numoffs);
+
+    for (i=0; i<numoffs; i++)
+    {
+        unsigned long data = read32(fp);
+        printf(" %08lx", data);
+        if ((i % 4) == 3)
+            printf("\n");
+    }
+    if ((i % 4) != 3)
+        printf("\n");
+}
+
 int hunkformat(unsigned long type, unsigned long lwsize, FILE *fp)
 {
     printf("Position = %ld\n", ftell(fp) - 4);
@@ -196,6 +215,11 @@ int hunkformat(unsigned long type, unsigned long lwsize, FILE *fp)
     {
         printf("HUNK_DREL32 (0x%X)\n", type);
         return reloc16hunk(fp);
+    }
+    else if (type == HUNK_DEBUG)
+    {
+	printf("HUNK_DEBUG(0x%X)\n", type);
+	return debughunk(fp);
     }
     else if (type == HUNK_END)
     {
